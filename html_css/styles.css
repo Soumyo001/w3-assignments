@@ -28,7 +28,7 @@
   --shadow:     0 6px 24px rgba(20, 40, 25, .08);
   --shadow-sm:  0 2px 10px rgba(20, 40, 25, .06);
 
-  --maxw: 1200px;
+  --maxw: 1450px;
   --font-head: "Poppins", system-ui, sans-serif;
   --font-body: "Inter", system-ui, sans-serif;
 }
@@ -75,9 +75,9 @@ h1, h2, h3, h4 {
 }
 .icon { flex: 0 0 auto;}
 .container { 
+    max-width: var(--maxw);
     width: 100%; 
-    /* max-width: var(--maxw);  */
-    margin-inline: auto; 
+    margin-right: auto; 
     padding-inline: 24px;
 }
 main > section { margin-top: 44px; }
@@ -106,10 +106,16 @@ main > section { margin-top: 44px; }
 }
 
 /* left-side view */
-.left-side-container{ max-width: var(--maxw); }
+main { margin-inline: auto; }
+.left-side-container {
+    display: flex;
+    align-items: flex-start;
+    padding-right: 24px;
+}
+.left-side-container > .container { flex: 1; min-width: 0; }
 
 
-/* header styling start */
+/* header styling */
 /* icon */
 .brand-logo__link {
     display: inline-flex;
@@ -227,7 +233,6 @@ main > section { margin-top: 44px; }
 }
 .gallery-layout { 
     margin-top: 12px;
-    max-width: var(--maxw);
     width: 100%;
     display: grid;
     grid-template-columns: 2fr 1fr;
@@ -511,7 +516,7 @@ main > section { margin-top: 44px; }
 }
 .hl-features {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 20px 24px;
     margin-top: 20px;
 }
@@ -595,6 +600,386 @@ main > section { margin-top: 44px; }
     color: var(--ink);
 }
 
+/* Course Features */
+.features {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 16px;
+    min-width: 0;
+}
+.feature-card {
+    border: 1px solid var(--line-soft);
+    border-radius: var(--radius-sm);
+    padding: 24px 28px;
+    background: var(--bg-tint);
+}
+.feature-card__title {
+    font-size: 1.15rem;
+    margin-bottom: 14px;
+}
+.feature-card__subtitle {
+    font-size: .9rem;
+    margin-bottom: 8px;
+}
+.feature-card__list {
+    list-style: disc;
+    padding-left: 18px;
+    font-size: .82rem;
+    color: var(--body);
+}
+.feature-card__list li { margin-top: 8px; }
+.feature-card__list li:first-child { margin-top: 0; }
+
+/* Best time weather */
+.best-time__intro {
+    margin-top: 4px;
+    font-size: .9rem;
+    color: var(--body);
+}
+.weather {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    margin-top: 16px;
+    padding: 20px 28px;
+    border-radius: var(--radius);
+    color: #fff;
+    background: linear-gradient(90deg, var(--teal-1), var(--teal-2));
+}
+.weather__today {
+    text-align: center;
+    padding-right: 24px;
+    border-right: 1px solid rgba(255, 255, 255, .3);
+}
+.weather__date {
+    font-family: var(--font-head);
+    font-weight: 700;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    letter-spacing: .03em;
+}
+.weather__place {
+    font-size: .78rem;
+    text-transform: uppercase;
+    letter-spacing: .04em;
+    opacity: .85;
+}
+.weather__now { display: none; }
+.weather__days {
+    display: flex;
+    flex: 1;
+    justify-content: space-between;
+    gap: 12px;
+    list-style: none;
+}
+.weather__day {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    font-size: .7rem;
+}
+.weather__day-name {
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: .04em;
+}
+.seasons {
+    margin-top: 12px;
+    padding: 26px;
+    border: 1px solid var(--line-soft);
+    border-radius: var(--radius-sm);
+}
+.seasons__title { font-size: 1.15rem; margin-bottom: 20px; }
+.seasons__grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+}
+.season { display: flex; flex-direction: column; }
+.season__icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    border: 2px solid var(--green-ink);
+    border-radius: 50%;
+    margin-bottom: 14px;
+}
+.season__title { font-size: .95rem; margin-bottom: 8px; }
+.season__desc { font-size: .8rem; color: var(--body); }
+.season__avg-title {
+    font-weight: 700;
+    color: var(--ink);
+    font-size: .82rem;
+    margin-bottom: 4px;
+}
+.season__avg { font-size: .8rem; color: var(--body); }
+
+/* Other courses */
+.course-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    min-width: 0;
+}
+.course-card {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    overflow: hidden;
+    background: var(--bg);
+}
+.course-card__media { aspect-ratio: 16 / 10; overflow: hidden; }
+.course-card__media img { width: 100%; height: 100%; object-fit: cover; }
+.course-card__body { display: flex; flex-direction: column; gap: 8px; padding: 16px; }
+.course-card__name { font-size: 1.05rem; }
+.course-card__miles {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    color: var(--green-ink);
+    font-weight: 600;
+    font-size: .8rem;
+    text-transform: uppercase;
+    letter-spacing: .03em;
+}
+.course-card__pin {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    flex: 0 0 auto;
+    background-color: var(--green-ink);
+    -webkit-mask: url("assets/icons/pin.svg") no-repeat center / contain;
+    mask: url("assets/icons/pin.svg") no-repeat center / contain;
+}
+.course-card__stats {
+    display: flex;
+    gap: 20px;
+    font-size: .76rem;
+    color: var(--ink);
+    text-transform: uppercase;
+    letter-spacing: .03em;
+}
+.course-card__stats span { display: inline-flex; align-items: center; gap: 6px; }
+.course-card__note {
+    display: flex;
+    gap: 8px;
+    font-size: .8rem;
+    color: var(--teal-2);
+}
+.course-card__leaf {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    flex: 0 0 auto;
+    background-color: var(--teal-2);
+    -webkit-mask: url("assets/icons/leaf.svg") no-repeat center / contain;
+    mask: url("assets/icons/leaf.svg") no-repeat center / contain;
+}
+.course-card__cta { display: flex; gap: 8px; margin-top: 6px; }
+.course-card__btn {
+    text-transform: uppercase;
+    font-size: .72rem;
+    font-weight: 600;
+    border-radius: var(--radius-pill);
+    padding: 8px 16px;
+}
+.course-card__btn__outline { border: 1px solid var(--line); color: var(--ink); }
+.course-card__btn__green { background: var(--green); color: var(--ink); }
+.course-footer {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    width: 100%;
+    gap: 12px;
+    margin-top: 16px;
+}
+.course-footer .view-all { margin-inline: 0; }
+.course-nav { display: flex; gap: 8px; }
+.course-nav__btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border: 1px solid var(--line);
+    border-radius: 50%;
+}
+.course-nav__btn__dark { background: var(--ink); border-color: var(--ink); }
+
+/* Booking side content */
+.booking { flex: 0 0 420px; margin-top: 132px; }
+.booking__card {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 18px;
+}
+.booking__price { color: var(--muted); font-size: .72rem; text-transform: uppercase; letter-spacing: .04em; }
+.booking__price strong { color: var(--ink); font-family: var(--font-head); font-size: 1.5rem; }
+.booking__dates { display: flex; gap: 10px; }
+.booking__dates .booking__field { flex: 1; }
+.booking__field {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    text-align: left;
+    border: 1px solid var(--line);
+    border-radius: var(--radius-sm);
+    padding: 8px 12px;
+}
+.booking__field-label { 
+    grid-column: 1; 
+    font-size: .6rem; 
+    color: var(--muted); 
+    text-transform: uppercase; 
+    letter-spacing: .05em; 
+}
+.booking__field-value { 
+    grid-column: 1; 
+    font-size: .82rem; 
+    font-weight: 600; 
+    color: var(--ink); 
+}
+.booking__field-icon { grid-column: 2; grid-row: 1 / span 2; }
+.booking__available {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--bg-tint);
+    border-radius: var(--radius-sm);
+    padding: 10px 12px;
+    font-size: .78rem;
+    color: var(--ink);
+}
+.booking__check {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 18px;
+    height: 18px;
+    flex: 0 0 auto;
+    background: var(--green-ink);
+    border-radius: 50%;
+}
+.booking__rows {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    border-top: 1px solid var(--line);
+    padding-top: 12px;
+}
+.booking__row { 
+    display: flex; 
+    justify-content: space-between; 
+    font-size: .74rem; 
+    color: var(--muted); 
+    text-transform: uppercase; 
+    letter-spacing: .03em; 
+}
+.booking__row__total { 
+    font-size: .95rem; 
+    color: var(--ink); 
+    font-weight: 700; 
+    text-transform: none; 
+    letter-spacing: 0; 
+}
+.booking__cta {
+    background: var(--cyan);
+    color: var(--ink);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: .04em;
+    border-radius: var(--radius-sm);
+    padding: 14px;
+}
+.booking__note { text-align: center; font-size: .74rem; color: var(--muted); }
+.booking__brand { color: #0a5ad6; font-weight: 700; }
+.booking__deal {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background: #fff6e6;
+    border-radius: var(--radius-sm);
+    padding: 8px;
+    font-size: .74rem;
+    color: var(--ink);
+}
+.booking__alt {
+    margin-top: 12px;
+    background: var(--bg-tint-2);
+    border: 1px solid var(--line-soft);
+    border-radius: var(--radius-sm);
+    padding: 12px 16px;
+    text-align: center;
+    font-size: .78rem;
+    color: var(--body);
+}
+.booking__alt a { color: var(--stay-blue); text-decoration: underline; }
+
+/* Booking side content mobile view */
+.promo { display: none; }
+.promo__col { display: flex; flex-direction: column; gap: 12px; flex: 1; }
+.promo__head { display: flex; align-items: center; gap: 8px; }
+.promo__icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+}
+.promo__icon__stay { background: var(--cyan); }
+.promo__icon__play { background: var(--play-green); }
+.promo__label { 
+    font-family: var(--font-head); 
+    font-weight: 700; 
+    font-size: 1.4rem; 
+    text-transform: uppercase; 
+}
+.promo__label__stay { color: var(--stay-blue); }
+.promo__label__play { color: var(--play-green); }
+.promo__box { 
+    display: flex; 
+    border: 1px solid var(--line); 
+    border-radius: var(--radius-sm); 
+}
+.promo__stat {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2px;
+    padding: 12px 8px;
+    text-align: center;
+    border-left: 1px solid var(--line);
+    font-size: .62rem;
+    text-transform: uppercase;
+    letter-spacing: .04em;
+    color: var(--muted);
+}
+.promo__stat:first-child { border-left: 0; }
+.promo__stat strong { font-family: var(--font-head); font-size: 1.2rem; color: var(--ink); }
+.promo__btn {
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: .78rem;
+    letter-spacing: .03em;
+    color: var(--ink);
+    border-radius: var(--radius-sm);
+    padding: 12px;
+}
+.promo__btn__stay { background: var(--cyan); }
+.promo__btn__play { background: var(--green); }
+
 /* Responsiveness */
 @media (max-width: 1024px) {
     .nav-bar { display: none; }
@@ -636,6 +1021,24 @@ main > section { margin-top: 44px; }
 
     /* guest Review */
     .review-grid { grid-template-columns: repeat(2, 1fr); }
+
+    /* Best time weather */
+    .seasons__grid { grid-template-columns: repeat(2, 1fr); }
+
+    /* other courses */
+    .course-grid { grid-template-columns: repeat(2, 1fr); }
+
+    /* side content swap */
+    .left-side-container { display: block; padding-right: 0; }
+    .booking { display: none; }
+    .promo {
+        display: flex;
+        gap: 16px;
+        margin-top: 16px;
+        border: 1px solid var(--line);
+        border-radius: var(--radius);
+        padding: 16px;
+    }
 }
 
 @media (max-width: 767px) {
@@ -682,10 +1085,55 @@ main > section { margin-top: 44px; }
     /* highlights */
     .hl-grid { grid-template-columns: repeat(1, 1fr); }
     .hl-features__item { flex-direction: column; gap: 6px; }
+    .hl-features__title { font-size: 0.8rem; }
     .panel { padding: 18px; }
 
     /* review */
     .review-grid { grid-template-columns: repeat(1, 1fr); }
+
+    /* course features */
+    .features { grid-template-columns: 1fr; }
+
+    /* Best time weather */
+    .best-time__title,
+    .best-time__intro,
+    .seasons__title { text-align: center; }
+    .weather { flex-direction: column; text-align: center; }
+    .weather__today {
+        width: 100%;
+        padding-right: 0;
+        border-right: 0;
+    }
+    .weather__now {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        margin-top: 8px;
+    }
+    .weather__now-temp { font-size: 2.6rem; font-weight: 700; }
+    .weather__days {
+        width: 100%;
+        justify-content: flex-start;
+        overflow-x: auto;
+    }
+    .weather__day { flex: 0 0 auto; }
+    .season { align-items: center; }
+    .season__desc { text-align: center; }
+    .seasons__grid { grid-template-columns: repeat(1, 1fr); }
+
+    /* other courses */
+    .course-grid { grid-template-columns: repeat(1, 1fr); }
+    .course-footer { justify-content: center; }
+
+    /* side content */
+    .promo { border: 0; padding: 0; gap: 12px; }
+    .promo__col { align-items: center; text-align: center; border: 1px solid var(--line); border-radius: var(--radius); padding: 16px; }
+    .promo__box { flex-direction: column; border: 0; }
+    .promo__stat { border-left: 0; padding: 4px; }
+    .promo__stat__from,
+    .promo__stat__extra { display: none; }
+    .promo__btn { width: 100%; border-radius: var(--radius-pill); }
 }
 
 @media (max-width: 425px) {
