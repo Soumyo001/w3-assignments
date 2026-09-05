@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 32" role="img" aria-label="Stay and Play">
+  <circle cx="14" cy="16" r="11" fill="none" stroke="#8bc34a" stroke-width="2"/>
+  <path d="M9 16c2-4 8-4 10 0-2 4-8 4-10 0z" fill="#8bc34a"/>
+  <text x="34" y="21" font-family="Georgia, serif" font-size="16" font-weight="700" fill="#ffffff">Stay<tspan fill="#8bc34a">&amp;</tspan>Play</text>
+</svg>

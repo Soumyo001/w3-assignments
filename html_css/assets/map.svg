@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 600" role="img" aria-label="Map of stays near Eagle Creek Golf Club">
+  <rect width="400" height="600" fill="#e7efe4"/>
+  <path d="M0 120 H400 M0 260 H400 M0 400 H400 M0 520 H400" stroke="#d3ddcf" stroke-width="6"/>
+  <path d="M90 0 V600 M210 0 V600 M320 0 V600" stroke="#d3ddcf" stroke-width="6"/>
+  <path d="M20 500 Q120 420 180 460 T380 380" fill="none" stroke="#9fc4e6" stroke-width="10" opacity="0.6"/>
+  <circle cx="205" cy="300" r="14" fill="#e5533d"/>
+  <circle cx="205" cy="300" r="5" fill="#ffffff"/>
+</svg>

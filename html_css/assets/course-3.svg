@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Nicklaus Course at Reunion Resort">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#bfe3f5"/><stop offset="1" stop-color="#e8f4ec"/>
+    </linearGradient>
+    <linearGradient id="grass" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#9ed07a"/><stop offset="1" stop-color="#4f9a4f"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#sky)"/>
+  <path d="M0 300 Q200 250 400 290 T800 280 V600 H0 Z" fill="url(#grass)"/>
+  <path d="M0 420 Q250 380 500 430 T800 410 V600 H0 Z" fill="#4f9a4f" opacity="0.85"/>
+  <ellipse cx="250" cy="360" rx="150" ry="34" fill="#7fc7e8" opacity="0.55"/>
+  <circle cx="640" cy="150" r="46" fill="#fdf6c8" opacity="0.9"/>
+  <text x="400" y="560" text-anchor="middle" font-family="Arial, sans-serif" font-size="26" fill="#ffffff" opacity="0.85">Nicklaus Course at Reunion Resort</text>
+</svg>
