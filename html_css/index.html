@@ -1,50 +1,132 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-        <meta name="description" content="Eagle Creek Golf Club, Stay and Play — a championship-level course in Orlando, FL. Book your stay and tee time."/>
-        <title>Eagle Creek Golf Club - Stay&amp;Play</title>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
-        <link rel="stylesheet" href="styles.css"/>
-    </head>
-    <body>
-        <header>
-            <div class="brand-logo">
-                <a href="#" class="brand-logo__link">
-                    <img
-                        src="assets/icons-white/brand-logo.svg"
-                        alt="Brand Logo"
-                        width="32"
-                        height="32"
-                    />
-                    <span class="brand-logo__name">
-                      Stay
-                      <span class="brand-logo__amp">&amp;</span>
-                      Play
-                    </span>
-                </a>
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description"
+    content="Eagle Creek Golf Club, Stay and Play — a championship-level course in Orlando, FL. Book your stay and tee time." />
+  <title>Eagle Creek Golf Club - Stay&amp;Play</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+  <header>
+    <div class="brand-logo">
+      <a href="#" class="brand-logo__link">
+        <img src="assets/icons-white/brand-logo.svg" alt="Brand Logo" width="32" height="32" />
+        <span class="brand-logo__name">
+          Stay
+          <span class="brand-logo__amp">&amp;</span>
+          Play
+        </span>
+      </a>
+    </div>
+    <nav class="nav-bar">
+      <ul class="nav-bar__list">
+        <li><a href="#" class="nav-bar__link">Home</a></li>
+        <li><a href="#" class="nav-bar__link">Where to stay</a></li>
+        <li><a href="#" class="nav-bar__link">Where to play</a></li>
+        <li><a href="#" class="nav-bar__link">Group Travel</a></li>
+      </ul>
+    </nav>
+    <button type="button" class="header-btn">
+      <img src="assets/icons-white/play-golf.svg" alt="" width="20" height="20" class="header-btn__icon" />
+      <span class="header-btn__text">Book a tee time</span>
+    </button>
+    <div class="search-bar">
+      <img src="assets/icons-white/search.svg" alt="search icon" class="search-bar__icon" />
+      <input type="text" placeholder="search" class="search-bar__input" />
+    </div>
+    <button type="button" class="nav-btn">
+      <img src="assets/icons-white/menu.svg" alt="" width="24" height="24">
+    </button>
+  </header>
+  <main>
+    <div class="left-side-container">
+      <section class="mt-5 container">
+        <nav class="breadcrumb">
+          <ul class="breadcrumb__list">
+            <li><a href="#">Golf Course</a></li>
+            <li><a href="#">&rsaquo;</a></li>
+            <li><a href="#">Florida</a></li>
+            <li><a href="#">&rsaquo;</a></li>
+            <li><a href="#">Orlando</a></li>
+            <li><a href="#">&rsaquo;</a></li>
+            <li><a href="#">Eagle Creek Golf Club</a></li>
+          </ul>
+        </nav>
+        <h1 class="title">Eagle Creek Golf Club, Stay and Play</h1>
+        <div class="meta-details">
+          <span class="meta-details__ratings">
+            <span class="meta-details__ratings__stars">
+              <span class="star"></span>
+              <span class="star"></span>
+              <span class="star"></span>
+              <span class="star"></span>
+              <span class="star star-muted"></span>
+            </span>
+            <strong class="meta-details__scores">9.0</strong>
+            <span class="meta-details__reviews">(3 Reviews)</span>
+          </span>
+          <span class="divider"></span>
+          <span class="meta-details__time">
+            <span class="meta-details__time__icon"></span>
+            <span>Tee Times Daily 7 AM - 6 PM</span>
+          </span>
+        </div>
+        <div class="ph gallery-layout">
+          <figure class="gallery-layout__main">
+            <img src="assets/1.jpg" alt="image-1"/>
+            <div class="carousel-dots">
+              <span class="is-active"></span><span></span><span></span><span></span><span></span><span></span>
             </div>
-            <nav class="nav-bar">
-                <ul class="nav-bar__list">
-                    <li><a href="#" class="nav-bar__link">Home</a></li>
-                    <li><a href="#" class="nav-bar__link">Where to stay</a></li>
-                    <li><a href="#" class="nav-bar__link">Where to play</a></li>
-                    <li><a href="#" class="nav-bar__link">Group Travel</a></li>
-                </ul>
-            </nav>
-            <button type="button" class="header-btn">
-                <img src="assets/icons-white/play-golf.svg" alt="" width="20" height="20" class="header-btn__icon"/>
-                <span class="header-btn__text">Book a tee time</span>
-            </button>
-            <div class="search-bar">
-                <img src="assets/icons-white/search.svg" alt="search icon" class="search-bar__icon"/>
-                <input type="text" placeholder="search" class="search-bar__input"/>
-            </div>
-            <button type="button" class="nav-btn">
-                <img src="assets/icons-white/menu.svg" alt="" width="24" height="24">
-            </button>
-        </header>
-    </body>
+          </figure>
+          <img src="assets/2.jpg" alt="image-2" class="gallery-layout__thumb"/>
+          <img src="assets/3.jpg" alt="image-3" class="gallery-layout__thumb"/>
+          <button type="button" class="gallery-layout__view">
+            View all 20 images
+          </button>
+        </div>
+        <p class="description">
+          Eagle Creek Golf Club combines scenic views with a championship-level course that offers a
+          memorable golfing experience. Nestled amidst lush landscapes and serene water features, this
+          course is known for its challenging design and exceptional playing conditions, making it a
+          must-play destination for golf enthusiasts.
+          <a href="#" class="readmore">
+            Read more 
+            <img 
+              src="assets/icons/chevron-down.svg" 
+              alt="down-icon"
+              width="16"
+              height="16"
+            />
+          </a>
+        </p>
+        <div class="glance">
+          <span class="glance__title">Eagle Creek Golf Club at a glance</span>
+          <ul class="glance__list">
+            <li><img src="assets/icons/play-golf.svg" alt="golf"/> Par: 72</li>
+            <li><img src="assets/icons/yards.svg" alt="yard"/> Total Yards: 7305</li>
+            <li><img src="assets/icons/users.svg" alt="user"/> Public Course</li>
+          </ul>
+          <button type="button" class="glance__cta">
+            More Course Highlights
+          </button>
+        </div>
+      </section>
+      <section class="mt-5 container">
+        <h1 class="section-title">Find the Perfect Stay Near Eagle Creek Golf Club in Orlando, FL</h1>
+        <div class="filters">
+          
+        </div>
+      </section>
+    </div>
+  </main>
+</body>
+
 </html>
