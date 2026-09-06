@@ -993,6 +993,7 @@ main { margin-inline: auto; }
     display: flex;
     flex-direction: row;
     justify-content: space-around;
+    /* align-items: flex-start; */ /* align-items is stretch by default (streches to longest cross-axis height) */
     max-width: none;
     width: 100%;
     gap: 30px;
@@ -1116,8 +1117,9 @@ main { margin-inline: auto; }
 
     /* footer */
     .footer__inner {
-        display: grid;
-        grid-template-columns: 1fr;
+        /* display: grid;
+        grid-template-columns: 1fr; */
+        flex-direction: column;
     }
 }
 
