@@ -63,6 +63,7 @@ const loadProperties = async (sort) => {
     const res = await fetch(`/get-property?${sort}=true&limit=${limitForPlatform()}`);
     const properties = await res.json();
     grid.innerHTML = properties.map(cardHTML).join("");
+    document.dispatchEvent(new CustomEvent("properties:loaded", { detail: properties }));
   } catch (err) {
     grid.innerHTML = "<p>Could not load properties. Please try again.</p>";
   }

@@ -470,6 +470,8 @@ main { margin-inline: auto; }
     overflow: hidden;
 }
 .stay-map img { width: 100%; height: 100%; object-fit: cover; }
+.stay-map__canvas { width: 100%; height: 100%; min-height: 260px; }
+.stay-card.is-highlighted { box-shadow: 0 0 0 3px var(--green-ink); }
 
 /* Pager */
 .stay-footer {
