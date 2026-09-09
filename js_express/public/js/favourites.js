@@ -11,9 +11,9 @@ const load = () => {
 const favorites = load();
 const save = () => localStorage.setItem(KEY, JSON.stringify([...favorites]));
 
-export const isFavorite = (id) => favorites.has(String(id));
+export const isFavourite = (id) => favorites.has(String(id));
 
-export const initFavorites = () => {
+export const initFavourites = () => {
   const grid = document.getElementById("stay-grid");
   if (!grid) return;
 

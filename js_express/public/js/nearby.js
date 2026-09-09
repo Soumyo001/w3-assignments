@@ -1,3 +1,5 @@
+import { isFavourite } from "./favourites.js";
+
 const grid = document.getElementById("stay-grid");
 const dropdown = document.getElementById("sort-select");
 
@@ -24,6 +26,7 @@ const cardHTML = (p) => {
   const features = [...(p.amenities || []), p.occupancy ? `Sleeps ${p.occupancy}` : null]
     .filter(Boolean)
     .join(" · ");
+  const favActive = isFavourite(p.id) ? " is-active" : "";
 
   return `
     <article class="stay-card" data-id="${esc(p.id)}">
@@ -33,7 +36,7 @@ const cardHTML = (p) => {
         <div class="stay-card__actions">
           <button type="button" class="stay-card__action"><img src="assets/icons-white/share.svg" alt="share" width="8" height="8" /></button>
           <button type="button" class="stay-card__action"><img src="assets/icons-white/pin.svg" alt="location" width="8" height="8" /></button>
-          <button type="button" class="stay-card__action"><img src="assets/icons-white/heart.svg" alt="save" width="8" height="8" /></button>
+          <button type="button" class="stay-card__action stay-card__action--fav${favActive}"><span class="stay-card__heart"></span></button>
         </div>
       </div>
       <div class="stay-card__body">
