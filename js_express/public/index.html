@@ -13,6 +13,7 @@
     href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap"
     rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hotel-datepicker/dist/css/hotel-datepicker.css" />
 </head>
 
 <body>
@@ -131,11 +132,16 @@
           Eagle Creek Golf Club combines scenic views with a championship-level course that offers a
           memorable golfing experience. Nestled amidst lush landscapes and serene water features, this
           course is known for its challenging design and exceptional playing conditions, making it a
-          must-play destination for golf enthusiasts.
-          <a href="#" class="readmore">
-            Read more 
-            <img src="assets/icons/chevron-down.svg" alt="down-icon" width="16" height="16"/>
-          </a>
+          must-play destination for golf enthusiasts.<span class="description__more"> Designed to
+          challenge every level of player, the layout winds through mature oaks, native wetlands and
+          rolling fairways, where well-placed bunkers and water hazards reward thoughtful shot-making.
+          Beyond the course, guests enjoy a full-service clubhouse, a driving range and putting greens,
+          and warm Florida hospitality that makes Eagle Creek an unforgettable stay-and-play
+          destination.</span>
+          <button type="button" class="readmore" id="descriptionToggle">
+            <span class="readmore__label">Read more</span>
+            <img src="assets/icons/chevron-down.svg" alt="" width="16" height="16" class="readmore__icon"/>
+          </button>
         </p>
         <div class="glance">
           <span class="glance__title">Eagle Creek Golf Club at a glance</span>
@@ -153,22 +159,23 @@
       <!-- Booking side content -->
       <aside class="booking">
         <div class="booking__card">
-          <p class="booking__price"><strong>USD $600</strong> <span>Avg per night</span></p>
+          <p class="booking__price"><strong>USD $2026</strong> <span>Avg per night</span></p>
           <div class="booking__dates">
-            <button type="button" class="booking__field">
+            <button type="button" class="booking__field" id="checkinField">
               <span class="booking__field-label">Check-in</span>
-              <span class="booking__field-value">19 Sep 2025</span>
+              <span class="booking__field-value" id="checkinValue">Add date</span>
               <img src="assets/icons/chevron-down.svg" alt="" width="16" height="16" class="booking__field-icon" />
             </button>
-            <button type="button" class="booking__field">
+            <button type="button" class="booking__field" id="checkoutField">
               <span class="booking__field-label">Check-out</span>
-              <span class="booking__field-value">21 Sep 2025</span>
+              <span class="booking__field-value" id="checkoutValue">Add date</span>
               <img src="assets/icons/chevron-down.svg" alt="" width="16" height="16" class="booking__field-icon" />
             </button>
           </div>
-          <button type="button" class="booking__field">
+          <input type="text" id="dateRange" class="booking__daterange" readonly />
+          <button type="button" class="booking__field" id="guestsField">
             <span class="booking__field-label">Guests</span>
-            <span class="booking__field-value">3 Guests, 1 Infant, 1 Pet</span>
+            <span class="booking__field-value" id="guestsValue">1 Guest</span>
             <img src="assets/icons/chevron-down.svg" alt="" width="16" height="16" class="booking__field-icon" />
           </button>
           <p class="booking__available">
@@ -176,8 +183,8 @@
             Dates selected are available
           </p>
           <div class="booking__rows">
-            <div class="booking__row"><span>Price per night</span><span>USD $600</span></div>
-            <div class="booking__row booking__row__total"><span>Total price</span><span>USD $600</span></div>
+            <div class="booking__row"><span>Price per night</span><span id="pricePerNight">USD $2026</span></div>
+            <div class="booking__row booking__row__total"><span>Total price</span><span id="totalPrice">USD $2026</span></div>
           </div>
           <button type="button" class="booking__cta">Check Availability</button>
           <p class="booking__note">You will be redirected to <strong class="booking__brand">Booking.com</strong></p>
@@ -208,200 +215,20 @@
           2 Bedroom
           <img src="assets/icons/chevron-down.svg" alt="down-icon" />
         </button>
-        <button type="button" class="filter__button">
-          Most popular
-          <img src="assets/icons/chevron-down.svg" alt="down-icon" />
-        </button>
+        <div class="filter__select" id="sort-select" data-value="most-popular">
+          <button type="button" class="filter__button filter__select-toggle">
+            <span class="filter__select-label">Most Popular</span>
+            <img src="assets/icons/chevron-down.svg" alt="down-icon" />
+          </button>
+          <ul class="filter__select-menu">
+            <li><button type="button" class="filter__select-option" data-value="most-popular">Most Popular</button></li>
+            <li><button type="button" class="filter__select-option" data-value="highest-price">Highest Price</button></li>
+            <li><button type="button" class="filter__select-option" data-value="lowest-price">Lowest Price</button></li>
+          </ul>
+        </div>
       </div>
       <div class="stay-layout">
-        <div class="stay-grid">
-          <article class="stay-card">
-            <div class="stay-card__media">
-              <img src="assets/4.jpg" alt="Fairway Greens Resort" />
-              <span class="stay-card__badge">50+ Golf Courses Nearby</span>
-              <div class="stay-card__actions">
-                <button type="button" class="stay-card__action"><img src="assets/icons-white/share.svg" alt="share"
-                    width="8" height="8" /></button>
-                <button type="button" class="stay-card__action"><img src="assets/icons-white/pin.svg" alt="location"
-                    width="8" height="8" /></button>
-                <button type="button" class="stay-card__action"><img src="assets/icons-white/heart.svg" alt="save"
-                    width="8" height="8" /></button>
-              </div>
-            </div>
-            <div class="stay-card__body">
-              <div class="stay-card__rating">
-                <span class="stay-card__score"><span class="star"></span> 10.0 Exceptional</span>
-                <span class="divider"></span>
-                <span class="stay-card__reviews">12 Reviews</span>
-              </div>
-              <h3 class="stay-card__name">Fairway Greens Resort</h3>
-              <span class="stay-card__source">Booking.com</span>
-              <div class="stay-card__price">From $295</div>
-              <p class="stay-card__features">Shuttle Service To The Course · Golf Club Storage · Pet-Friendly · On-Site
-                Dining Options · Sleeps 8</p>
-              <span class="stay-card__location">Florida &rsaquo; Orlando</span>
-              <div class="stay-card__cta">
-                <button type="button" class="stay-card__btn stay-card__btn__outline">Learn More</button>
-                <button type="button" class="stay-card__btn stay-card__btn__green">See Dates</button>
-              </div>
-            </div>
-          </article>
-          <article class="stay-card ar-1">
-            <div class="stay-card__media">
-              <img src="assets/5.jpg" alt="Fairway Greens Resort" />
-              <span class="stay-card__badge">50+ Golf Courses Nearby</span>
-              <div class="stay-card__actions">
-                <button type="button" class="stay-card__action"><img src="assets/icons-white/share.svg" alt="share"
-                    width="8" height="8" /></button>
-                <button type="button" class="stay-card__action"><img src="assets/icons-white/pin.svg" alt="location"
-                    width="8" height="8" /></button>
-                <button type="button" class="stay-card__action"><img src="assets/icons-white/heart.svg" alt="save"
-                    width="8" height="8" /></button>
-              </div>
-            </div>
-            <div class="stay-card__body">
-              <div class="stay-card__rating">
-                <span class="stay-card__score"><span class="star"></span> 10.0 Exceptional</span>
-                <span class="divider"></span>
-                <span class="stay-card__reviews">12 Reviews</span>
-              </div>
-              <h3 class="stay-card__name">The Par View Lodge</h3>
-              <span class="stay-card__source">Booking.com</span>
-              <div class="stay-card__price">From $295</div>
-              <p class="stay-card__features">Shuttle Service To The Course · Golf Club Storage · Pet-Friendly · On-Site
-                Dining Options · Sleeps 8</p>
-              <span class="stay-card__location">Florida &rsaquo; Orlando</span>
-              <div class="stay-card__cta">
-                <button type="button" class="stay-card__btn stay-card__btn__outline">Learn More</button>
-                <button type="button" class="stay-card__btn stay-card__btn__green">See Dates</button>
-              </div>
-            </div>
-          </article>
-          <article class="stay-card ar-2">
-            <div class="stay-card__media">
-              <img src="assets/6.jpg" alt="Fairway Greens Resort" />
-              <span class="stay-card__badge">50+ Golf Courses Nearby</span>
-              <div class="stay-card__actions">
-                <button type="button" class="stay-card__action"><img src="assets/icons-white/share.svg" alt="share"
-                    width="8" height="8" /></button>
-                <button type="button" class="stay-card__action"><img src="assets/icons-white/pin.svg" alt="location"
-                    width="8" height="8" /></button>
-                <button type="button" class="stay-card__action"><img src="assets/icons-white/heart.svg" alt="save"
-                    width="8" height="8" /></button>
-              </div>
-            </div>
-            <div class="stay-card__body">
-              <div class="stay-card__rating">
-                <span class="stay-card__score"><span class="star"></span> 10.0 Exceptional</span>
-                <span class="divider"></span>
-                <span class="stay-card__reviews">12 Reviews</span>
-              </div>
-              <h3 class="stay-card__name">Coastal Links Retreat</h3>
-              <span class="stay-card__source">Booking.com</span>
-              <div class="stay-card__price">From $295</div>
-              <p class="stay-card__features">Shuttle Service To The Course · Golf Club Storage · Pet-Friendly · On-Site
-                Dining Options · Sleeps 8</p>
-              <span class="stay-card__location">Florida &rsaquo; Orlando</span>
-              <div class="stay-card__cta">
-                <button type="button" class="stay-card__btn stay-card__btn__outline">Learn More</button>
-                <button type="button" class="stay-card__btn stay-card__btn__green">See Dates</button>
-              </div>
-            </div>
-          </article>
-          <article class="stay-card ar-3">
-            <div class="stay-card__media">
-              <img src="assets/7.jpg" alt="Fairway Greens Resort" />
-              <span class="stay-card__badge">50+ Golf Courses Nearby</span>
-              <div class="stay-card__actions">
-                <button type="button" class="stay-card__action"><img src="assets/icons-white/share.svg" alt="share"
-                    width="8" height="8" /></button>
-                <button type="button" class="stay-card__action"><img src="assets/icons-white/pin.svg" alt="location"
-                    width="8" height="8" /></button>
-                <button type="button" class="stay-card__action"><img src="assets/icons-white/heart.svg" alt="save"
-                    width="8" height="8" /></button>
-              </div>
-            </div>
-            <div class="stay-card__body">
-              <div class="stay-card__rating">
-                <span class="stay-card__score"><span class="star"></span> 10.0 Exceptional</span>
-                <span class="divider"></span>
-                <span class="stay-card__reviews">12 Reviews</span>
-              </div>
-              <h3 class="stay-card__name">Eagle&apos;s Nest Golf Resort</h3>
-              <span class="stay-card__source">Booking.com</span>
-              <div class="stay-card__price">From $295</div>
-              <p class="stay-card__features">Shuttle Service To The Course · Golf Club Storage · Pet-Friendly · On-Site
-                Dining Options · Sleeps 8</p>
-              <span class="stay-card__location">Florida &rsaquo; Orlando</span>
-              <div class="stay-card__cta">
-                <button type="button" class="stay-card__btn stay-card__btn__outline">Learn More</button>
-                <button type="button" class="stay-card__btn stay-card__btn__green">See Dates</button>
-              </div>
-            </div>
-          </article>
-          <article class="stay-card ar-4">
-            <div class="stay-card__media">
-              <img src="assets/8.jpg" alt="Fairway Greens Resort" />
-              <span class="stay-card__badge">50+ Golf Courses Nearby</span>
-              <div class="stay-card__actions">
-                <button type="button" class="stay-card__action"><img src="assets/icons-white/share.svg" alt="share"
-                    width="8" height="8" /></button>
-                <button type="button" class="stay-card__action"><img src="assets/icons-white/pin.svg" alt="location"
-                    width="8" height="8" /></button>
-                <button type="button" class="stay-card__action"><img src="assets/icons-white/heart.svg" alt="save"
-                    width="8" height="8" /></button>
-              </div>
-            </div>
-            <div class="stay-card__body">
-              <div class="stay-card__rating">
-                <span class="stay-card__score"><span class="star"></span> 10.0 Exceptional</span>
-                <span class="divider"></span>
-                <span class="stay-card__reviews">12 Reviews</span>
-              </div>
-              <h3 class="stay-card__name">Fairway Greens Resort</h3>
-              <span class="stay-card__source">Booking.com</span>
-              <div class="stay-card__price">From $295</div>
-              <p class="stay-card__features">Shuttle Service To The Course · Golf Club Storage · Pet-Friendly · On-Site
-                Dining Options · Sleeps 8</p>
-              <span class="stay-card__location">Florida &rsaquo; Orlando</span>
-              <div class="stay-card__cta">
-                <button type="button" class="stay-card__btn stay-card__btn__outline">Learn More</button>
-                <button type="button" class="stay-card__btn stay-card__btn__green">See Dates</button>
-              </div>
-            </div>
-          </article>
-          <article class="stay-card ar-5">
-            <div class="stay-card__media">
-              <img src="assets/9.jpg" alt="Fairway Greens Resort" />
-              <span class="stay-card__badge">50+ Golf Courses Nearby</span>
-              <div class="stay-card__actions">
-                <button type="button" class="stay-card__action"><img src="assets/icons-white/share.svg" alt="share"
-                    width="8" height="8" /></button>
-                <button type="button" class="stay-card__action"><img src="assets/icons-white/pin.svg" alt="location"
-                    width="8" height="8" /></button>
-                <button type="button" class="stay-card__action"><img src="assets/icons-white/heart.svg" alt="save"
-                    width="8" height="8" /></button>
-              </div>
-            </div>
-            <div class="stay-card__body">
-              <div class="stay-card__rating">
-                <span class="stay-card__score"><span class="star"></span> 10.0 Exceptional</span>
-                <span class="divider"></span>
-                <span class="stay-card__reviews">12 Reviews</span>
-              </div>
-              <h3 class="stay-card__name">Fairway Greens Resort</h3>
-              <span class="stay-card__source">Booking.com</span>
-              <div class="stay-card__price">From $295</div>
-              <p class="stay-card__features">Shuttle Service To The Course · Golf Club Storage · Pet-Friendly · On-Site
-                Dining Options · Sleeps 8</p>
-              <span class="stay-card__location">Florida &rsaquo; Orlando</span>
-              <div class="stay-card__cta">
-                <button type="button" class="stay-card__btn stay-card__btn__outline">Learn More</button>
-                <button type="button" class="stay-card__btn stay-card__btn__green">See Dates</button>
-              </div>
-            </div>
-          </article>
-        </div>
+        <div class="stay-grid" id="stay-grid"></div>
         <div class="stay-map">
           <img src="assets/map-orlando.png" alt="Map of stays near Eagle Creek Golf Club" />
         </div>
@@ -860,36 +687,62 @@
       </div>
     </div>
   </footer>
+  <!-- Gallery modal -->
+  <div class="gmodal" id="galleryModal" hidden>
+    <div class="gmodal__dialog">
+      <button type="button" class="gmodal__close" id="galleryClose">&times;</button>
 
-  <!-- Gallery Modal -->
-  <div class="gallery-modal" id="galleryModal">
-    <div class="gallery-modal__content">
-      <button class="gallery-modal__close" id="closeGalleryBtn">
-        ×
-      </button>
-
-      <!-- desktop -->
-      <div class="desktop-gallery" id="desktopGallery">
+      <div class="gmodal__viewport" id="galleryViewport">
+        <div class="gmodal__track" id="galleryTrack"></div>
       </div>
 
-      <!-- mobile/tablet -->
-      <div class="mobile-gallery">
-        <button class="gallery-arrow left" id="prevImage">
-          ‹
-        </button>
-        <img id="mobileGalleryImage" />
-        <button class="gallery-arrow right" id="nextImage">
-          ›
-        </button>
-        <div class="gallery-counter" id="galleryCounter">
-          1 / 10
-        </div>
-        <div class="mobile-dots" id="mobileDots">
+      <button type="button" class="gmodal__arrow gmodal__arrow--prev" id="galleryPrev">&lsaquo;</button>
+      <button type="button" class="gmodal__arrow gmodal__arrow--next" id="galleryNext">&rsaquo;</button>
+
+      <div class="gmodal__counter" id="galleryCounter"></div>
+
+      <div class="gmodal__dots">
+        <div class="gmodal__dots-window" id="galleryDotsWindow">
+          <div class="gmodal__dots-strip" id="galleryDotsStrip"></div>
         </div>
       </div>
     </div>
   </div>
-
+  <!-- Guests modal -->
+  <div class="pmodal" id="guestsModal" hidden>
+    <div class="pmodal__dialog">
+      <div class="pmodal__head">
+        <span class="pmodal__title">Guests</span>
+        <button type="button" class="pmodal__close" id="guestsClose">&times;</button>
+      </div>
+      <div class="pmodal__row">
+        <span>Guests</span>
+        <div class="pmodal__stepper">
+          <button type="button" class="pmodal__btn" data-counter="guests" data-step="-1">&minus;</button>
+          <span class="pmodal__count" id="countGuests">1</span>
+          <button type="button" class="pmodal__btn" data-counter="guests" data-step="1">+</button>
+        </div>
+      </div>
+      <div class="pmodal__row">
+        <span>Infants</span>
+        <div class="pmodal__stepper">
+          <button type="button" class="pmodal__btn" data-counter="infants" data-step="-1">&minus;</button>
+          <span class="pmodal__count" id="countInfants">0</span>
+          <button type="button" class="pmodal__btn" data-counter="infants" data-step="1">+</button>
+        </div>
+      </div>
+      <div class="pmodal__row">
+        <span>Pets</span>
+        <div class="pmodal__stepper">
+          <button type="button" class="pmodal__btn" data-counter="pets" data-step="-1">&minus;</button>
+          <span class="pmodal__count" id="countPets">0</span>
+          <button type="button" class="pmodal__btn" data-counter="pets" data-step="1">+</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/fecha/dist/fecha.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/hotel-datepicker/dist/js/hotel-datepicker.js"></script>
   <script type="module" src="js/main.js"></script>
 </body>
 

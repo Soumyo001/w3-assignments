@@ -1,4 +1,4 @@
-import Router from "express";
+import { Router } from "express";
 import { getConfigController } from "../controllers/config.controller.js";
 
 const configRoutes = Router();
