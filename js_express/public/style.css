@@ -507,6 +507,18 @@ main { margin-inline: auto; }
     color: var(--muted);
 }
 
+/* Stay carousel dots (mobile/tablet) */
+.stay-dots { display: none; }
+.stay-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--line);
+    padding: 0;
+    transition: background .2s ease, transform .2s ease;
+}
+.stay-dot.is-active { background: var(--green-ink); transform: scale(1.15); }
+
 /* Highlights */
 .panel {
     background-color: var(--bg-tint);
@@ -1359,22 +1371,19 @@ body.modal-open { overflow: hidden; }
     .glance__list { flex-wrap: wrap; }
     
     /* stay edits */
-    .stay-grid { grid-template-columns: repeat(1, minmax(220px, 1fr)); }
+    .stay-grid {
+        display: flex;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        scrollbar-width: none;              /* hide scrollbar firefox */
+        -webkit-overflow-scrolling: touch;
+    }
+    .stay-grid::-webkit-scrollbar { display: none; }  /* hide scrollbar chromiums */
+    .stay-card { flex: 0 0 100%; scroll-snap-align: start; }
+    .stay-dots { display: flex; justify-content: center; gap: 8px; margin-top: 14px; }
+    .pager { display: none; }
     .stay-footer { flex-direction: column; }
     .view-all { margin-inline: 0; }
-    .pager__list { justify-content: center; gap: 8px; }
-    .pager__link {
-        width: 10px;
-        height: 10px;
-        border-radius: 50%;
-        border: 1px solid var(--muted);
-        color: transparent; /* Transparent color to hide pager digits */
-        overflow: hidden;
-    }
-    .pager__link__active { background: var(--green); border-color: var(--green); }
-    .pager__prev,
-    .pager__next,
-    .pager__more { display: none; }
     
     /* highlights */
     .hl-grid { grid-template-columns: repeat(1, 1fr); }

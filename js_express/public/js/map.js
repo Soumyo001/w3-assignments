@@ -1,9 +1,8 @@
-// Map — Google Maps markers synced with the Nearby Properties cards
-const CENTER = { lat: 28.42, lng: -81.3 }; // Orlando area, until markers set the bounds
+const CENTER = { lat: 28.42, lng: -81.3 };
 
 let map = null;
-const markers = new Map(); // id -> google.maps.Marker
-let pending = null; // properties waiting for the map to finish loading
+const markers = new Map();
+let pending = null;
 let hoveredId = null;
 
 const loadGoogleMaps = (key) =>
@@ -32,7 +31,7 @@ const highlightMarker = (id, on) => {
   if (marker) marker.setAnimation(on ? google.maps.Animation.BOUNCE : null);
 };
 
-// (re)build markers for the currently displayed properties
+// rebuild markers for the currently displayed properties
 const renderMarkers = (properties) => {
   if (!map) {
     pending = properties;
@@ -59,7 +58,7 @@ export const initMap = async () => {
   const container = document.getElementById("stayMap");
   if (!grid || !container) return;
 
-  // hover a tile -> bounce its marker (deduped so moving within a card doesn't flicker)
+  // hover a tile -> bounce its marker
   grid.addEventListener("mouseover", (e) => {
     const card = e.target.closest(".stay-card");
     const id = card ? card.dataset.id : null;
@@ -73,16 +72,23 @@ export const initMap = async () => {
     hoveredId = null;
   });
 
-  // markers follow whatever Nearby Properties rendered
+  // markers follow nearby properties rendered
   document.addEventListener("properties:loaded", (e) => renderMarkers(e.detail));
 
-  // load the key from the server (never committed). No key -> keep the static image, no errors.
+  // load the key from the servers
   try {
     const res = await fetch("/api/config");
     const { googleMapsApiKey } = await res.json();
     if (!googleMapsApiKey || !googleMapsApiKey.trim()) return;
 
-    await loadGoogleMaps(googleMapsApiKey);
+    // restore the static image and stop.
+    const fallbackHTML = container.innerHTML;
+    window.gm_authFailure = () => {
+      map = null;
+      container.innerHTML = fallbackHTML;
+    };
+
+    await loadGoogleMaps(googleMapsApiKey.trim());
     container.innerHTML = ""; // remove the fallback image
     const canvas = document.createElement("div");
     canvas.className = "stay-map__canvas";
@@ -95,7 +101,7 @@ export const initMap = async () => {
       streetViewControl: false,
     });
 
-    // the map is hidden on mobile; refresh its tiles when it becomes visible again
+    // map hidden on mobile
     window.matchMedia("(max-width: 767px)").addEventListener("change", (e) => {
       if (map && !e.matches) {
         google.maps.event.trigger(map, "resize");
