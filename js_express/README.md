@@ -18,8 +18,12 @@ Language: **JavaScript only** (no TypeScript).
 - **`GET /images`** — returns an array of the 10 property images served from the server.
 - **Nearby Properties** — a sort dropdown (Most Popular / Highest Price / Lowest Price)
   that fetches from `/get-property` and renders the cards (6 on desktop, 4 on mobile).
-- **Gallery modal** — "View all images" opens a modal: a scrollable gallery on desktop
-  and a swipe slider (arrows, image counter, and up to 5 sliding dots) on tablet/mobile.
+  On mobile the cards become a single-card swipe carousel with dot indicators.
+- **Gallery** — on **desktop**, "View all images" opens a modal showing all 10 images in
+  a scrollable gallery (background locked; closes on ✕, click-outside, or Esc). On
+  **tablet and mobile**, the hero image itself is an inline swipe carousel of the 10
+  images with prev/next arrows, an image counter, and up to 5 sliding dots — no modal,
+  by design.
 - **Description** — a "Read more / Collapse" toggle.
 - **Date picker** — a date range picker (Hotel Datepicker) with a guests/infants/pets
   modal and an auto-calculated total price.
@@ -71,12 +75,13 @@ npm install
 
 ```env
 PORT=8000
-GOOGLE_MAPS_API_KEY=your_google_maps_javascript_api_key
+GOOGLE_MAPS_API_KEY=
 ```
 
 - `PORT` — optional; defaults to `8000` if omitted.
 - `GOOGLE_MAPS_API_KEY` — the Google Maps JavaScript API key. Leave it blank to run
-  with the static map fallback; add a key to enable the live map with markers.
+  with the static map fallback (console stays clean); add a real key to enable the live
+  map with markers.
 
 **4. Run the server**
 
@@ -142,7 +147,9 @@ http://localhost:8000
     └── js/
         ├── main.js              # Entry module: initializes every feature
         ├── nearby.js            # Nearby Properties dropdown + card rendering
-        ├── gallery.js           # "View all images" modal / slider
+        ├── carousel.js          # Nearby cards single-card swipe carousel (mobile)
+        ├── gallery.js           # Desktop "View all images" modal
+        ├── hero.js              # Inline hero image carousel (tablet/mobile)
         ├── description.js       # Read more / Collapse
         ├── picker.js            # Hotel Datepicker + guests modal + total price
         ├── favourites.js        # Heart toggle + localStorage
@@ -213,6 +220,8 @@ stays out of the source:
 - The **booking / date-picker card** is a desktop element by design (on tablet and mobile
   it is replaced by the STAY/PLAY promo, matching the mockup), so test the picker on a
   wide window.
+- The **gallery** uses a modal on desktop and an inline hero carousel on tablet/mobile —
+  the "View all images" button appears on desktop only.
 - The **map** is shown on desktop and tablet and hidden on mobile, matching the design.
 - Without `GOOGLE_MAPS_API_KEY`, the map shows a static fallback image and the console
   stays clean. With a valid key, Google's console prints a single `google.maps.Marker`
