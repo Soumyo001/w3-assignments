@@ -1155,10 +1155,6 @@ body.modal-open { overflow: hidden; }
 .gmodal__track { display: flex; flex-direction: column; gap: 12px; }
 .gmodal__slide img { width: 100%; height: auto; display: block; border-radius: var(--radius-sm); }
 
-.gmodal__arrow,
-.gmodal__counter,
-.gmodal__dots { display: none; }
-
 /* Booking date input */
 .booking__daterange { display: block; width: 100%; height: 0; margin: 0; padding: 0; border: 0; opacity: 0; }
 
@@ -1335,65 +1331,8 @@ body.modal-open { overflow: hidden; }
 
     /* footer */
     .footer__inner {
-        /* display: grid;
-        grid-template-columns: 1fr; */
         flex-direction: column;
     }
-
-    /* Gallery modal */
-    .gmodal__dialog { max-width: 560px; }
-    .gmodal__viewport { flex: 0 0 auto; overflow: hidden; padding: 0; }
-    .gmodal__track { flex-direction: row; gap: 0; transition: transform .3s ease; }
-    .gmodal__slide { flex: 0 0 100%; }
-    .gmodal__slide img { height: 60vh; object-fit: contain; background: #000; border-radius: 0; }
-
-    .gmodal__arrow {
-        position: absolute;
-        top: 50%;
-        transform: translateY(-50%);
-        z-index: 2;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 40px;
-        height: 40px;
-        border-radius: 50%;
-        background: var(--bg);
-        color: var(--ink);
-        font-size: 1.6rem;
-        line-height: 1;
-        box-shadow: var(--shadow);
-        cursor: pointer;
-    }
-    .gmodal__arrow--prev { left: 10px; }
-    .gmodal__arrow--next { right: 10px; }
-
-    .gmodal__counter {
-        display: block;
-        position: absolute;
-        top: 12px;
-        left: 14px;
-        z-index: 2;
-        padding: 4px 10px;
-        border-radius: var(--radius-pill);
-        background: rgba(20, 30, 22, .6);
-        color: #fff;
-        font-size: .78rem;
-    }
-
-    .gmodal__dots { display: flex; justify-content: center; padding: 12px 0 14px; }
-    .gmodal__dots-window { overflow: hidden; }
-    .gmodal__dots-strip { display: flex; gap: 6px; transition: transform .3s ease; }
-    .gmodal__dot {
-        width: 8px;
-        height: 8px;
-        border-radius: 50%;
-        background: var(--line);
-        flex: 0 0 auto;
-        transition: transform .25s ease, background .25s ease;
-    }
-    .gmodal__dot.is-active { background: var(--green-ink); }
-    .gmodal__dot.is-edge { transform: scale(.6); }
 }
 
 @media (max-width: 767px) {
