@@ -9,8 +9,8 @@ const __dirname = path.dirname(__filename);
 
 const app = e();
 app.use(e.json());
-app.use('/api/v1/property', propertyRoutes);
-app.use('/api/v1', configRoutes);
+app.use('/', propertyRoutes);
+app.use('/api', configRoutes);
 app.use(e.static(path.join(__dirname, "public")));
 
 export default app;
