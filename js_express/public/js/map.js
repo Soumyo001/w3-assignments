@@ -75,7 +75,7 @@ export const initMap = async () => {
   // markers follow nearby properties rendered
   document.addEventListener("properties:loaded", (e) => renderMarkers(e.detail));
 
-  // load the key from the servers
+  // load the key
   try {
     const res = await fetch("/api/config");
     const { googleMapsApiKey } = await res.json();
