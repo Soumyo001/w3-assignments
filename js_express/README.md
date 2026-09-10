@@ -20,7 +20,7 @@ Language: **JavaScript only** (no TypeScript).
   that fetches from `/get-property` and renders the cards (6 on desktop, 4 on mobile).
   On mobile the cards become a single-card swipe carousel with dot indicators.
 - **Gallery** — on **desktop**, "View all images" opens a modal showing all 10 images in
-  a scrollable gallery (background locked; closes on ✕, click-outside, or Esc). On
+  a scrollable gallery (background locked; closes on ✕ icon, click-outside, or Esc). On
   **tablet and mobile**, the hero image itself is an inline swipe carousel of the 10
   images with prev/next arrows, an image counter, and up to 5 sliding dots — no modal,
   by design.
